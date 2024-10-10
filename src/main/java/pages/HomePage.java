@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import utils.PropertiesUtils;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -54,13 +55,12 @@ public class HomePage extends CommonLoggedOutPage {
     //Performance
     private static final By askField = By.xpath("//textarea[@placeholder='Ask me anything']");
     private static final By sendButton = By.xpath("//button[@aria-label='Send']");
-    private static final By closeDialogButton = By.cssSelector("body > div.MuiDialog-root.MuiModal-root.css-1v95erz > div.MuiDialog-container.MuiDialog-scrollPaper.css-16u656j > div > div.MuiDialogActions-root.MuiDialogActions-spacing.css-l46w4f > button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedSecondary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-colorSecondary.MuiButton-root.MuiButton-outlined.MuiButton-outlinedSecondary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-colorSecondary.css-1h9az98");
-
+    private static final By closeDialogButton = By.xpath("//button[text()='Close']");
     private static Random random = new Random();
 
     public static String generateRandomEmail() {
         String[] names = {"john", "alice", "peter", "maria", "jane"};
-        int number = random.nextInt(1000); // Nasumični broj
+        int number = random.nextInt(1000); // Random number
         String name = names[random.nextInt(names.length)];
         return name + number + "@example.com";
     }
@@ -248,15 +248,16 @@ public class HomePage extends CommonLoggedOutPage {
         element.click();
 
     }
-    public void clickCloseDialogButton()
-    {
+
+    public void clickCloseDialogButton() {
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
         if (isDialogDisplayed() == true) {
             waitUntilElementIsVisible(driver, closeDialogButton, 10);
             WebElement element = getWebElement(closeDialogButton);
             element.click();
         }
     }
-
     public boolean isUserPresent(String string)
     {
         log.trace("isUserPresent");
