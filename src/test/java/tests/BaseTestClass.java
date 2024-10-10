@@ -47,10 +47,10 @@ public class BaseTestClass extends LoggerUtils {
         log.debug("[SETUP TEST] ");
         driver = setUpDriver();
     }
-    @AfterMethod(alwaysRun = true)
-    public void tearDownTest(ITestResult testResult) {
-        log.debug("[END TEST] ");
-        tearDown(driver, testResult);
-    }
+//    @AfterMethod(alwaysRun = true)
+//    public void tearDownTest(ITestResult testResult) {
+//        log.debug("[END TEST] ");
+//        tearDown(driver, testResult);
+//    }
 
 }

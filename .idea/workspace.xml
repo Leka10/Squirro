@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dbb8f51-f68d-4db3-8a1d-b2d718cc6ab8" name="Changes" comment="KP commit">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTestClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/tasks/SquirroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/tasks/SquirroTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,18 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "milica0908"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;milica0908&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/milica0908/Squirro.git",
-    "accountId": "82b7ad85-7673-4dfe-8c0d-d2bec679b261"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/milica0908/Squirro.git&quot;,
+    &quot;accountId&quot;: &quot;82b7ad85-7673-4dfe-8c0d-d2bec679b261&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -43,8 +44,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TestNG.Amazon.executor": "Run",
     "TestNG.KupujemProdajem.executor": "Run",
+    "TestNG.SquirroTest.Performance.executor": "Run",
     "TestNG.SquirroTest.executor": "Run",
+    "TestNG.SquirroTest.measureLoadTimesForKeyPages.executor": "Run",
+    "TestNG.SquirroTest.testAddingNewUsersToTheInstance.executor": "Run",
     "TestNG.SquirroTest.testLoginWithValidCredentials.executor": "Run",
+    "TestNG.SquirroTest.userManagement.executor": "Run",
+    "TestNG.SquirroTest.verifySearchFunctionalityPerformanceWithLargeDatasets.executor": "Run",
     "full.screen.before.presentation.mode": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -56,8 +62,8 @@
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.SquirroTest">
-    <configuration name="SquirroTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.SquirroTest.verifySearchFunctionalityPerformanceWithLargeDatasets">
+    <configuration name="SquirroTest.Performance" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Squirro" />
       <extension name="coverage">
         <pattern>
@@ -67,14 +73,15 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests.tasks" />
       <option name="MAIN_CLASS_NAME" value="tests.tasks.SquirroTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="METHOD_NAME" value="Performance" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SquirroTest.testLoginWithValidCredentials" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SquirroTest.measureLoadTimesForKeyPages" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Squirro" />
       <extension name="coverage">
         <pattern>
@@ -84,7 +91,61 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests.tasks" />
       <option name="MAIN_CLASS_NAME" value="tests.tasks.SquirroTest" />
-      <option name="METHOD_NAME" value="testLoginWithValidCredentials" />
+      <option name="METHOD_NAME" value="measureLoadTimesForKeyPages" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SquirroTest.testAddingNewUsersToTheInstance" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Squirro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.tasks" />
+      <option name="MAIN_CLASS_NAME" value="tests.tasks.SquirroTest" />
+      <option name="METHOD_NAME" value="testAddingNewUsersToTheInstance" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SquirroTest.userManagement" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Squirro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.tasks" />
+      <option name="MAIN_CLASS_NAME" value="tests.tasks.SquirroTest" />
+      <option name="METHOD_NAME" value="userManagement" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SquirroTest.verifySearchFunctionalityPerformanceWithLargeDatasets" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Squirro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.tasks" />
+      <option name="MAIN_CLASS_NAME" value="tests.tasks.SquirroTest" />
+      <option name="METHOD_NAME" value="verifySearchFunctionalityPerformanceWithLargeDatasets" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -94,8 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.SquirroTest" />
-        <item itemvalue="TestNG.SquirroTest.testLoginWithValidCredentials" />
+        <item itemvalue="TestNG.SquirroTest.verifySearchFunctionalityPerformanceWithLargeDatasets" />
+        <item itemvalue="TestNG.SquirroTest.measureLoadTimesForKeyPages" />
+        <item itemvalue="TestNG.SquirroTest.userManagement" />
+        <item itemvalue="TestNG.SquirroTest.Performance" />
+        <item itemvalue="TestNG.SquirroTest.testAddingNewUsersToTheInstance" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726404218088</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="KP commit">
+      <option name="closed" value="true" />
+      <created>1728360389063</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728360389063</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

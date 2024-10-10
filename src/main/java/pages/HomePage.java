@@ -3,6 +3,7 @@ package pages;
 import data.Time;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import utils.PropertiesUtils;
 
 import java.util.Random;
@@ -12,6 +13,7 @@ public class HomePage extends CommonLoggedOutPage {
 
     private final String LOGIN_PAGE_URL = PropertiesUtils.getBaseUrl();
 
+    //Account creation
     private static final By myInstances = By.xpath("//a[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-disableElevation']");
     private static final By signUpLink = By.xpath("//a[contains(@href, '/auth/realms/Squirro/login-actions/registration?client_id=start.squirro.com')]");
     private static final By firstNameField = By.xpath("//input[@name='firstName']");
@@ -32,11 +34,27 @@ public class HomePage extends CommonLoggedOutPage {
     private static final By gmailPasswordField = By.xpath("//input[@type='password']");
     private static final By verifyEmail = By.xpath("//span[contains(text(), 'Please confirm your email address to activate your Squirro ID account.')]");
 
+    //Login
     private static final By avatarIcon = By.xpath("//div[@class='MuiAvatar-root MuiAvatar-circular jss6 MuiAvatar-colorDefault']");
     private static final By usernameField = By.xpath("//input[@name='username']");
     private static final By invalidPasswordMessage = By.xpath("//span[text()='Invalid username or password.']");
     private static final By forgotPasswordLink = By.xpath("//a[contains(@href, '/auth/realms/Squirro/login-actions/reset-credentials')]");
     private static final By forgotPasswordMessage = By.xpath("//span[text()='You should receive an email shortly with further instructions.']");
+
+    //User Management
+    private static final By instancesPage = By.xpath("//a[@href='/admin/instances']");
+    private static final By adminInstances = By.xpath("//a[@class='MuiTypography-root MuiLink-root MuiLink-underlineHover MuiButtonBase-root MuiIconButton-root jss36 MuiTypography-colorPrimary']");
+    private static final By inviteUsersButton = By.xpath("//span[text()='Invite Users']");
+    private static final By selectRole = By.xpath("//div[@class= 'MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input']");
+    private static final By sendInviteButton = By.xpath("//span[text()='Send Invite']");
+    private static final By userRole = By.xpath("//td[text()='test@test.com']");
+    private static final By removeButton = By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text jss28 MuiButton-disableElevation']");
+    private static final By confirmRemoveButton = By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-disableElevation']");
+
+    //Performance
+    private static final By askField = By.xpath("//textarea[@placeholder='Ask me anything']");
+    private static final By sendButton = By.xpath("//button[@aria-label='Send']");
+    private static final By closeDialogButton = By.cssSelector("body > div.MuiDialog-root.MuiModal-root.css-1v95erz > div.MuiDialog-container.MuiDialog-scrollPaper.css-16u656j > div > div.MuiDialogActions-root.MuiDialogActions-spacing.css-l46w4f > button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedSecondary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-colorSecondary.MuiButton-root.MuiButton-outlined.MuiButton-outlinedSecondary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-colorSecondary.css-1h9az98");
 
     private static Random random = new Random();
 
@@ -46,6 +64,7 @@ public class HomePage extends CommonLoggedOutPage {
         String name = names[random.nextInt(names.length)];
         return name + number + "@example.com";
     }
+
 
 
 
@@ -140,6 +159,125 @@ public class HomePage extends CommonLoggedOutPage {
         waitUntilElementIsVisible(driver, forgotPasswordLink, 10);
         WebElement element = getWebElement(forgotPasswordLink);
         element.click();
+    }
+    public void clickOnAdminInstances()
+    {
+        String actualUrl = driver.getCurrentUrl();
+        String expectedUrl = "https://start.squirro.com/admin/instances";
+        if (actualUrl.contains(expectedUrl))
+        {
+            waitUntilElementIsVisible(driver, adminInstances, 10);
+            WebElement element = getWebElement(adminInstances);
+            element.click();
+
+        }
+        else {
+            waitUntilElementIsVisible(driver, instancesPage, 10);
+            WebElement element = getWebElement(instancesPage);
+            element.click();
+            waitUntilElementIsVisible(driver, adminInstances, 10);
+            WebElement element2 = getWebElement(adminInstances);
+            element2.click();
+        }
+    }
+    public void clickOnInviteUsersButton()
+    {
+        waitUntilElementIsVisible(driver, inviteUsersButton, 10);
+        WebElement element = getWebElement(inviteUsersButton);
+        element.click();
+    }
+    public void selectUserRole(String string)
+    {
+        waitUntilElementIsVisible(driver, selectRole, 10);
+        WebElement element = getWebElement(selectRole);
+        element.click();
+        waitUntilElementIsVisible(driver, selectRole, 10);
+        WebElement element2 = getWebElement(By.xpath("//li[@data-value='"+string+"']"));
+        element2.click();
+    }
+    public void clickOnSendInviteButton()
+    {
+        waitUntilElementIsVisible(driver, sendInviteButton, 10);
+        WebElement element = getWebElement(sendInviteButton);
+        element.click();
+    }
+    public void verifyUserRole(String string)
+    {
+        waitUntilElementIsVisible(driver, userRole, 10);
+        WebElement element = getWebElement(By.xpath("//td[text()='test@test.com']/../td/div/div[text()='"+string+"']"));
+        String roleCheck = element.getText();
+
+        if (roleCheck.equals(string))
+        {
+            Assert.assertTrue(true);
+        }
+        else {
+            Assert.assertTrue(false);
+        }
+    }
+    public void clickOnRemoveButton()
+    {
+        waitUntilElementIsVisible(driver, removeButton, 10);
+        WebElement element = getWebElement(By.xpath("//td[text()='test@test.com']/../td/div/button/span[text()='Remove']"));
+        element.click();
+    }
+    public void clickConfirmRemoveButton()
+    {
+        waitUntilElementIsVisible(driver, confirmRemoveButton, 10);
+        WebElement element = getWebElement(confirmRemoveButton);
+        element.click();
+    }
+    public void clickOnInstanceLink(String string)
+    {
+
+        WebElement element = getWebElement(By.xpath("//a[text()='"+string+"']"));
+        element.click();
+
+    }
+    public void enterTextInAskField(String string)
+    {
+        waitUntilElementIsVisible(driver, askField, 10);
+        WebElement element = getWebElement(askField);
+        element.sendKeys(string);
+
+    }
+    public void clickSendButton()
+    {
+        waitUntilElementIsVisible(driver, sendButton, 10);
+        WebElement element = getWebElement(sendButton);
+        element.click();
+
+    }
+    public void clickCloseDialogButton()
+    {
+        if (isDialogDisplayed() == true) {
+            waitUntilElementIsVisible(driver, closeDialogButton, 10);
+            WebElement element = getWebElement(closeDialogButton);
+            element.click();
+        }
+    }
+
+    public boolean isUserPresent(String string)
+    {
+        log.trace("isUserPresent");
+        try {
+            driver.findElement(By.xpath("//td[text()='"+string+"']"));
+            return true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+    public boolean isDialogDisplayed()
+    {
+//        waitUntilElementIsVisible(driver, closeDialogButton, 10);
+        WebElement element = getWebElement(closeDialogButton);
+        if(element.isDisplayed())
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     public boolean isVerifyDisplayed()
     {
